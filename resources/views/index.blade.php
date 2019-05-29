@@ -1,1 +1,5 @@
-これはTest3ブランチでの作業です。
+@extends('layout')
+
+@section('content')
+  <p>Hello World!</p>
+@endsection
