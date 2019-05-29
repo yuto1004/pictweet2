@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="utf-8">
-      <title>Pictweet</title>
-    </head>
+@extends('layout')
 
-    <body>
-      <p>Hello World!</p>
-    </body>
-  </html>
+@section('content')
+  <p>Hello World!</p>
+@endsection
