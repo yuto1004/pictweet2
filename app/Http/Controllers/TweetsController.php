@@ -14,4 +14,8 @@ class TweetsController extends Controller
 
         return view('tweets.index')->with('tweets', $tweets);
     }
+
+    public function create(){
+        return view('tweets.create');
+    }
 }
