@@ -10,7 +10,7 @@ use App\Tweet;
 class TweetsController extends Controller
 {
     public function index(){
-        $tweets = Tweet::all();
+        $tweets = Tweet::OrderBy('created_at', 'DESC')->get();
 
         return view('tweets.index')->with('tweets', $tweets);
     }
