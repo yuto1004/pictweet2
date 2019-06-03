@@ -19,22 +19,14 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::auth();
 
-    Route::get('/tweets', 'TweetsController@index');
+    Route::get('/','TweetsController@index');
 
-    Route::get('/', 'TweetsController@index');
+    Route::resource('tweets', 'TweetsController');
 
-    Route::get('/tweets/create', 'TweetsController@create');
-
-    Route::post('/tweets', 'TweetsController@store');
-
-    Route::get('/tweets/{id}', 'TweetsController@show');
-
-    Route::get('/tweets/{tweet_id}/edit', 'TweetsController@edit');
-
-    Route::patch('/tweets/{tweet_id}', 'TweetsController@update');
+    Route::resource('tweets.comments', 'CommentController', ['only' => 'store']);
 
     Route::get('/tweets/{id}/delete', 'TweetsController@destroy');
 
-    Route::get('/users/{id}', 'UsersController@show');
+    Route::resource('users', 'UsersController', ['only' => 'show']);
 
 });
