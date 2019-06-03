@@ -46,6 +46,18 @@ class TweetsController extends Controller
         return view('tweets.edit')->with('tweet', $tweet);
     }
     
+    public function update($id, Request $request)
+    {
+      Tweet::find($id)->update(
+        array(
+          'text' => $request->text,
+          'image' => $request->image
+        )
+      );
+  
+      return view('tweets.update');
+    }
+    
     public function destroy($id) {
         if (Tweet::find($id)->user_id == Auth::user()->id) {
           Tweet::destroy($id);
