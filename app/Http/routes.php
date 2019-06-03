@@ -27,6 +27,8 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('/tweets', 'TweetsController@store');
 
+    Route::get('/tweets/{tweet_id}/edit', 'TweetsController@edit');
+
     Route::get('/tweets/{id}/delete', 'TweetsController@destroy');
 
     Route::get('/users/{id}', 'UsersController@show');
