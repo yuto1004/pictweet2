@@ -38,6 +38,14 @@ class TweetsController extends Controller
         );
         return view('tweets.store');
     }
+
+    public function edit($id)
+    {
+        $tweet = Tweet::find($id);
+
+        return view('tweets.edit')->with('tweet', $tweet);
+    }
+    
     public function destroy($id) {
         if (Tweet::find($id)->user_id == Auth::user()->id) {
           Tweet::destroy($id);
